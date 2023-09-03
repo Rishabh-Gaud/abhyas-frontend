@@ -15,7 +15,7 @@ const Subject = () => {
 
   const subjecttopics = useGetSubjectTopics(subject);
   console.log(subjecttopics);
-  // sessionStorage.clear();
+  sessionStorage.clear();
 
   return (
     <>
