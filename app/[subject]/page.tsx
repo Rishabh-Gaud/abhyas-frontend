@@ -13,7 +13,7 @@ const Subject = () => {
   const subject = String(params.subject);
   console.log(subject);
 
-  const subjecttopics = useGetSubjectTopics(subject);
+  const subjecttopics = UseGetSubjectTopics(subject);
   console.log(subjecttopics);
   sessionStorage.clear();
 
@@ -41,7 +41,7 @@ const Subject = () => {
 
 export default Subject;
 
-function useGetSubjectTopics(subjectname: string) {
+function UseGetSubjectTopics(subjectname: string) {
   const [topics, setTopics] = useState();
   console.log(subjectname);
   
