@@ -12,7 +12,7 @@ function MCQTopic() {
   const topic = topicparam.replace(/-/g, " ");
   const [question, setQuestion] = useState([]);
   useEffect(() => {
-    const getProblems = async () => {
+    const GetProblems = async () => {
       try {
         const response = await axios.post(
           `http://localhost:8082/mcq/fetch-topic`,
@@ -28,11 +28,11 @@ function MCQTopic() {
       }
     };
 
-    getProblems();
+    GetProblems();
   }, [subject, topic]);
   const [codingAnswers, setCodingAnswers] = useState([]); // Store coding answers
 
-  const handleCodingAnswerChange = (questionId: string, answer: string) => {
+  const HandleCodingAnswerChange = (questionId: string, answer: string) => {
     // Update the codingAnswers state based on the questionId
     localStorage.setItem(`${questionId}`, JSON.stringify(answer));
     setCodingAnswers((prevAnswers) => ({
@@ -49,7 +49,7 @@ function MCQTopic() {
           <McqTopicCard
             key={idx}
             problem={problem}
-            onAnswerChange={handleCodingAnswerChange}
+            onAnswerChange={HandleCodingAnswerChange}
           />
         ))}
     </div>
