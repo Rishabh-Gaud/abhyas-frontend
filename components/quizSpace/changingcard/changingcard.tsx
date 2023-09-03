@@ -17,7 +17,7 @@ type Question = {
   correct: number;
 };
 
-const changingcard: React.FC<Changingcardprops> = ({
+const ChangingCard: React.FC<Changingcardprops> = ({
   question,
   total,
   _next,
@@ -178,4 +178,4 @@ const changingcard: React.FC<Changingcardprops> = ({
   );
 };
 
-export default changingcard;
+export default ChangingCard;
