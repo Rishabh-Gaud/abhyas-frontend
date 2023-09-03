@@ -5,7 +5,7 @@ export class AesDecryptUtil {
 
   static getAesKey() {
     if (AesDecryptUtil.privateKey) return AesDecryptUtil.privateKey;
-    AesDecryptUtil.privateKey = configCred.AesPrivateKey;
+    AesDecryptUtil.privateKey = String(process.env.AesPrivateKey);
     return AesDecryptUtil.privateKey;
   }
 
