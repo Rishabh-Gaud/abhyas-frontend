@@ -8,9 +8,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-"resolutions": {
-    "react-countup/countup.js": "2.5.0"
-  },
   "dependencies": {
     "@codemirror/lang-javascript": "^6.1.9",
     "@types/node": "20.4.9",
