@@ -2,6 +2,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import WrapperFile from '@/app/WrapperFile'
 // import { ToastContainer } from 'react-toastify';
 // import { RecoilRoot } from "recoil";
 
@@ -19,12 +20,13 @@ export default function RootLayout({
 }) {
   return (
     // <RecoilRoot>
+    <WrapperFile>
       <html lang="en">
         <body className={inter.className}>
           {/* <ToastContainer /> */}
           {children}
           </body>
-      </html>
-    // </RecoilRoot>
+      </html></WrapperFile>
+    //  </RecoilRoot>
   )
 }
