@@ -1,9 +1,9 @@
-'use client';
+// 'use client';
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { ToastContainer } from 'react-toastify';
-import { RecoilRoot } from "recoil";
+// import { ToastContainer } from 'react-toastify';
+// import { RecoilRoot } from "recoil";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,13 +18,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <RecoilRoot>
+    // <RecoilRoot>
       <html lang="en">
         <body className={inter.className}>
-          <ToastContainer />
+          {/* <ToastContainer /> */}
           {children}
           </body>
       </html>
-    </RecoilRoot>
+    // </RecoilRoot>
   )
 }
