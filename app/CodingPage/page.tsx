@@ -2,14 +2,13 @@
 import ProblemsTable from "@/components/ProblemsTable/ProblemsTable";
 import Topbar from "@/components/Navbar/Topbar";
 import useHasMounted from "@/hooks/useHasMounted";
-
 import { useState } from "react";
 
 export default function Home() {
 	const [loadingProblems, setLoadingProblems] = useState(true);
-	const hasMounted = useHasMounted();
+	// const hasMounted = useHasMounted();
 
-	if (!hasMounted) return null;
+	// if (!hasMounted) return null;
 
 	return (
 			<div className='bg-zinc-300 min-h-screen'>

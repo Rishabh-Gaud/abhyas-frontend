@@ -26,15 +26,6 @@ const ProblemsTable: React.FC<ProblemsTableProps> = ({ setLoadingProblems }) => 
 		setYoutubePlayer({ isOpen: false, videoId: "" });
 	};
 
-	useEffect(() => {
-		const handleEsc = (e: KeyboardEvent) => {
-			if (e.key === "Escape") closeModal();
-		};
-		window.addEventListener("keydown", handleEsc);
-
-		return () => window.removeEventListener("keydown", handleEsc);
-	}, []);
-
 	return (
 		<>
 			<tbody className='text-black'>

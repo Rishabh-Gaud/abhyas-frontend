@@ -7,10 +7,30 @@ import React, { useEffect, useState } from "react";
 
 function MCQTopic() {
   const params = useParams();
-  const subject = params.subject;
+  const subject = String(params.subject);
   const topicparam = String(params.topic);
   const topic = topicparam.replace(/-/g, " ");
-  const [question, setQuestion] = useState([]);
+
+  const question = GetAllMcqs(subject,topic);
+  
+
+  return (
+    <div className="mt-5 ml-10">
+      {question &&
+        (question as any).map((problem:any, idx:number) => (
+          <McqTopicCard
+            key={idx}
+            problem={problem}
+          />
+        ))}
+    </div>
+  );
+}
+
+export default MCQTopic;
+
+const GetAllMcqs = (subject:string, topic:string) =>{
+  const [question, setQuestion] = useState();
   useEffect(() => {
     const GetProblems = async () => {
       try {
@@ -30,30 +50,7 @@ function MCQTopic() {
 
     GetProblems();
   }, [subject, topic]);
-  const [codingAnswers, setCodingAnswers] = useState([]); // Store coding answers
 
-  const HandleCodingAnswerChange = (questionId: string, answer: string) => {
-    // Update the codingAnswers state based on the questionId
-    localStorage.setItem(`${questionId}`, JSON.stringify(answer));
-    setCodingAnswers((prevAnswers) => ({
-      ...prevAnswers,
+  return question;
 
-      [questionId]: localStorage.getItem(questionId),
-    }));
-  };
-
-  return (
-    <div className="mt-5 ml-10">
-      {question &&
-        question.map((problem, idx) => (
-          <McqTopicCard
-            key={idx}
-            problem={problem}
-            onAnswerChange={HandleCodingAnswerChange}
-          />
-        ))}
-    </div>
-  );
 }
-
-export default MCQTopic;
