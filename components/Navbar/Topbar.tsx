@@ -19,7 +19,6 @@ type TopbarProps = {
 const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
 	const [user, setuser] = useLocalStorage("user-info", "");
 	// const user = JSON.parse(String(localStorage.getItem('user-info')));
-	console.log('user-info'+user);
 	
 	
 	const setAuthModalState = useSetRecoilState(authModalState);
