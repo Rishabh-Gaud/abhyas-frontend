@@ -8,6 +8,8 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
+const BaseURL = process.env.BaseURL;
+
 const Subject = () => {
   const params = useParams();
   const subject = String(params.subject);
@@ -50,7 +52,7 @@ function UseGetSubjectTopics(subjectname: string) {
     const getProblems = async () => {
       try {
         // const data = { subject:subjectname };
-        const response = await axios.post("http://localhost:8082/mcq/topics", {
+        const response = await axios.post(BaseURL + "mcq/topics", {
           subject: subjectname,
         });
         let { data } = response.data;

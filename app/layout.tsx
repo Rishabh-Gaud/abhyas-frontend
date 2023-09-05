@@ -9,7 +9,7 @@ import WrapperFile from '@/app/WrapperFile'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Uchhhal',
+  title: 'Uchhal',
   description: 'Platform that wings to you to fly',
 }
 
