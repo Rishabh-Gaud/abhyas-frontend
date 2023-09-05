@@ -5,6 +5,9 @@ import React, { useEffect, useState } from "react";
 // import {signInWithEmail} from "@/Services/AuthServices";
 import { useSetRecoilState } from "recoil";
 import { toast } from "react-toastify";
+
+const BaseURL = process.env.BaseURL;
+
 type LoginProps = {};
 
 const Login: React.FC<LoginProps> = () => {
@@ -27,7 +30,7 @@ const Login: React.FC<LoginProps> = () => {
 
 		try {
 			// console.log(inputs.email+inputs.password);
-			const response = await axios.post('http://localhost:8082/user/login', { userkey:inputs.email, password:inputs.password });
+			const response = await axios.post(BaseURL + 'user/login', { userkey:inputs.email, password:inputs.password });
 			console.log("response: ", response);
 			
 			// if(!response.isSuccess) {

@@ -5,6 +5,8 @@ import { useSetRecoilState } from "recoil";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
+const BaseURL = process.env.BaseURL;
+
 type SignupProps = {};
 
 const Signup: React.FC<SignupProps> = () => {
@@ -33,7 +35,7 @@ const Signup: React.FC<SignupProps> = () => {
 					last_name:inputs.last_name }
 		try {
 			// console.log(inputs.email+inputs.password);
-			const response = await axios.post('http://localhost:8082/user/register', data);
+			const response = await axios.post(BaseURL + 'user/register', data);
 			console.log("response: ", response);
 			
 			// if(!response.isSuccess) {

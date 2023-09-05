@@ -10,6 +10,8 @@ import { useRouter } from "next/router";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import axios from "axios";
 
+const BaseURL = process.env.BaseURL;
+
 type PlaygroundProps = {
 	problem: any;
 	setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
@@ -58,7 +60,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 				examples.push({input:exa.inputText, expectedOutput:exa.outputText});
 			}
 		try {
-			const response = await axios.post('http://localhost:8082/compiler/submit', {codeCpp:userCode, problemId: problem.title.replace(/ /g, "-"), examples:examples});
+			const response = await axios.post(BaseURL + 'compiler/submit', {codeCpp:userCode, problemId: problem.title.replace(/ /g, "-"), examples:examples});
 			console.log(response);
 			// changeInnerContent();
 			// setSubmitted(true);
@@ -97,7 +99,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 			for(const exa of problem.example){
 				examples.push({input:exa.inputText, expectedOutput:exa.outputText});
 			}
-			const response = await axios.post('http://localhost:8082/compiler', {codeCpp:userCode, problemId: problem.title.replace(/ /g, "-"), examples:examples});
+			const response = await axios.post(BaseURL + 'compiler', {codeCpp:userCode, problemId: problem.title.replace(/ /g, "-"), examples:examples});
 			console.log(response);
 			// changeInnerContent();
 			setRunOutput(response.data);

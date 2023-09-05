@@ -5,6 +5,8 @@ import axios from "axios";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
+const BaseURL = process.env.BaseURL;
+
 const MCQTopic = () => {
   const params = useParams();
   const subject = String(params.subject);
@@ -36,7 +38,7 @@ const GetAllMcqs = (subject:string, topic:string) =>{
     const GetProblems = async () => {
       try {
         const response = await axios.post(
-          `http://localhost:8082/mcq/fetch-topic`,
+          BaseURL + `mcq/fetch-topic`,
           { subject: subject, category: topic }
         );
         let { data } = response.data;
