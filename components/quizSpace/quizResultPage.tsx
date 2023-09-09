@@ -3,11 +3,11 @@ type quizResultPageprops = {
   questions: any;
 };
 
-const quizResultPage: React.FC<quizResultPageprops> = ({ questions }) => {
+const QuizResultPage: React.FC<quizResultPageprops> = ({ questions }) => {
   console.log(questions);
   const [questionCount, setQuestionCount] = useState(0);
   const [correctAnsCount, setCorrectAnsCount] = useState(0);
-  const setCount = (val: boolean) => {
+  const SetCount = (val: boolean) => {
     useEffect(() => {
       const handleChange = () => {
         setQuestionCount((questionCount) => questionCount + 1);
@@ -26,7 +26,7 @@ const quizResultPage: React.FC<quizResultPageprops> = ({ questions }) => {
         <div className="flex mx=2"> marks u get: {correctAnsCount} </div>
       </div>
       {questions.map((question: any, index: number) => {
-        setCount(
+        SetCount(
           sessionStorage.getItem(`answer-${index + 1}`) == question.correct
         );
         return (
@@ -97,4 +97,4 @@ const quizResultPage: React.FC<quizResultPageprops> = ({ questions }) => {
   );
 };
 
-export default quizResultPage;
+export default QuizResultPage;

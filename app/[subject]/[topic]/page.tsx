@@ -5,17 +5,40 @@ import axios from "axios";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-function MCQTopic() {
+const BaseURL = process.env.BaseURL;
+
+const MCQTopic = () => {
   const params = useParams();
-  const subject = params.subject;
+  const subject = String(params.subject);
   const topicparam = String(params.topic);
   const topic = topicparam.replace(/-/g, " ");
-  const [question, setQuestion] = useState([]);
+
+  const question = GetAllMcqs(subject,topic);
+  
+
+  return (
+    <div className="mt-5 ml-10">
+      {question &&
+        (question as any).map((problem:any, idx:number) => (
+          <McqTopicCard
+            key={idx}
+            problem={problem}
+          />
+        ))
+        }
+    </div>
+  );
+}
+
+export default MCQTopic;
+
+const GetAllMcqs = (subject:string, topic:string) =>{
+  const [question, setQuestion] = useState();
   useEffect(() => {
-    const getProblems = async () => {
+    const GetProblems = async () => {
       try {
         const response = await axios.post(
-          `http://localhost:8082/mcq/fetch-topic`,
+          BaseURL + `mcq/fetch-topic`,
           { subject: subject, category: topic }
         );
         let { data } = response.data;
@@ -28,32 +51,9 @@ function MCQTopic() {
       }
     };
 
-    getProblems();
+    GetProblems();
   }, [subject, topic]);
-  const [codingAnswers, setCodingAnswers] = useState([]); // Store coding answers
 
-  const handleCodingAnswerChange = (questionId: string, answer: string) => {
-    // Update the codingAnswers state based on the questionId
-    localStorage.setItem(`${questionId}`, JSON.stringify(answer));
-    setCodingAnswers((prevAnswers) => ({
-      ...prevAnswers,
+  return question;
 
-      [questionId]: localStorage.getItem(questionId),
-    }));
-  };
-
-  return (
-    <div className="mt-5 ml-10">
-      {question &&
-        question.map((problem, idx) => (
-          <McqTopicCard
-            key={idx}
-            problem={problem}
-            onAnswerChange={handleCodingAnswerChange}
-          />
-        ))}
-    </div>
-  );
 }
-
-export default MCQTopic;

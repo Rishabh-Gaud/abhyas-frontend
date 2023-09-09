@@ -7,6 +7,8 @@ import AllQuestionSpace from "./allQuestionSpace/allQuestionSpace";
 import QuizResultPage from "./quizResultPage";
 import { AesDecryptUtil } from "@/utils/AesDecryptUtil";
 
+const BaseURL = process.env.BaseURL;
+
 type quizspaceprops = {
   subject?: string;
 };
@@ -36,10 +38,10 @@ const QuizSpace: React.FC<quizspaceprops> = ({ subject }) => {
       try {
         let response;
         if (subject == "arithmatic") {
-          response = await axios.get("http://localhost:8082/mcq/quiz");
+          response = await axios.get(BaseURL + "mcq/quiz");
         } else {
           response = await axios.get(
-            "http://localhost:8082/mcq/quiz/" + subject
+            BaseURL + "mcq/quiz/" + subject
           );
         }
         let { data } = response.data;

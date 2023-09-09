@@ -8,6 +8,8 @@ import YouTube from "react-youtube";
 import { DBProblem } from "@/utils/types/problem";
 import axios from "axios";
 
+const BaseURL = process.env.BaseURL;
+
 type ProblemsTableProps = {
 	setLoadingProblems: React.Dispatch<React.SetStateAction<boolean>>;
 };
@@ -25,15 +27,6 @@ const ProblemsTable: React.FC<ProblemsTableProps> = ({ setLoadingProblems }) => 
 	const closeModal = () => {
 		setYoutubePlayer({ isOpen: false, videoId: "" });
 	};
-
-	useEffect(() => {
-		const handleEsc = (e: KeyboardEvent) => {
-			if (e.key === "Escape") closeModal();
-		};
-		window.addEventListener("keydown", handleEsc);
-
-		return () => window.removeEventListener("keydown", handleEsc);
-	}, []);
 
 	return (
 		<>
@@ -164,7 +157,7 @@ function useGetProblems(setLoadingProblems: React.Dispatch<React.SetStateAction<
 			setLoadingProblems(true);
 
 		try {
-			const response = await axios.get('http://localhost:8082/coding-bank/');
+			const response = await axios.get(BaseURL + 'coding-bank/');
 			console.log("response: ", response);
 			console.log(response.data);
 			setProblems(response.data.data);

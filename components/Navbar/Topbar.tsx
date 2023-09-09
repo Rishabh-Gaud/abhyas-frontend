@@ -6,7 +6,7 @@ import { authModalState } from "@/atoms/authModalAtom";
 import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { BsList } from "react-icons/bs";
-import Timer from "../Timer/Timer";
+// import Timer from "../Timer/Timer";
 import { useRouter } from "next/navigation";
 import { problems } from "@/utils/problems/page";
 import { Problem } from "@/utils/types/problem";
@@ -19,7 +19,6 @@ type TopbarProps = {
 const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
 	const [user, setuser] = useLocalStorage("user-info", "");
 	// const user = JSON.parse(String(localStorage.getItem('user-info')));
-	console.log('user-info'+user);
 	
 	
 	const setAuthModalState = useSetRecoilState(authModalState);
@@ -86,7 +85,7 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
 							<button className='bg-dark-fill-3 py-1 px-2 cursor-pointer rounded '>Sign In</button>
 						</Link>
 					)}
-					{user && problemPage && <Timer />}
+					{/* {user && problemPage && <Timer />} */}
 					{user && (
 						<div className='cursor-pointer group relative'>
 							<Image src='/avatar.png' alt='Avatar' width={30} height={30} className='rounded-full' />

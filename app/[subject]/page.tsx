@@ -8,14 +8,16 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
+const BaseURL = process.env.BaseURL;
+
 const Subject = () => {
   const params = useParams();
   const subject = String(params.subject);
   console.log(subject);
 
-  const subjecttopics = useGetSubjectTopics(subject);
+  const subjecttopics = UseGetSubjectTopics(subject);
   console.log(subjecttopics);
-  // sessionStorage.clear();
+  sessionStorage.clear();
 
   return (
     <>
@@ -41,7 +43,7 @@ const Subject = () => {
 
 export default Subject;
 
-function useGetSubjectTopics(subjectname: string) {
+function UseGetSubjectTopics(subjectname: string) {
   const [topics, setTopics] = useState();
   console.log(subjectname);
   
@@ -50,7 +52,7 @@ function useGetSubjectTopics(subjectname: string) {
     const getProblems = async () => {
       try {
         // const data = { subject:subjectname };
-        const response = await axios.post("http://localhost:8082/mcq/topics", {
+        const response = await axios.post(BaseURL + "mcq/topics", {
           subject: subjectname,
         });
         let { data } = response.data;

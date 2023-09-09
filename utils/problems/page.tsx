@@ -1,9 +1,110 @@
 import { Problem } from "../types/problem";
 import {SubjectDetails} from "../types/problem";
+import {Jobs} from "../types/problem";
 
 // interface ProblemMap {
 // 	[key: string]: Problem;
 // }
+export const jobs: Jobs[] = [ {
+  _id: "64f803dbe59b56d82cd33ef0",
+  companyName: "Mastercard",
+  title: "Software Development Engineer",
+  location: "Pune",
+  imageUrl: "https://1000logos.net/wp-content/uploads/2017/03/Mastercard-logo.png",
+  type: "In-Office Job",
+  salary: "11 LPA - 19 LPA",
+  redirectLink: "https://careers.mastercard.com/us/en/job/MASRUSR162856EXTERNALENUS/Software-Development-Engineer-in-Test?",
+  requiredExperience: "0-2 years",
+  skills: "SQL, Java",
+  createdAt: "2023-09-06T04:45:12.533Z",
+  
+},
+
+{
+  _id: "64f803dbe59b56d82cd33ef1",
+  companyName: "Mastercard",
+  title: "Software Development Engineer",
+  location: "Pune",
+  imageUrl: "https://1000logos.net/wp-content/uploads/2017/03/Mastercard-logo.png",
+  type: "In-Office Job",
+  salary: "11 LPA - 19 LPA",
+  redirectLink: "https://careers.mastercard.com/us/en/job/MASRUSR162856EXTERNALENUS/Software-Development-Engineer-in-Test?",
+  requiredExperience: "0-2 years",
+  skills: "SQL, Java",
+  createdAt: "2023-09-06T04:45:12.533Z",
+  
+},
+
+{
+  _id: "64f803dbe59b56d82cd33ef2",
+  companyName: "Mastercard",
+  title: "Software Development Engineer",
+  location: "Pune",
+  imageUrl: "https://1000logos.net/wp-content/uploads/2017/03/Mastercard-logo.png",
+  type: "In-Office Job",
+  salary: "11 LPA - 19 LPA",
+  redirectLink: "https://careers.mastercard.com/us/en/job/MASRUSR162856EXTERNALENUS/Software-Development-Engineer-in-Test?",
+  requiredExperience: "0-2 years",
+  skills: "SQL, Java",
+  createdAt: "2023-09-06T04:45:12.533Z",
+  
+},
+
+{
+  _id: "64f803dbe59b56d82cd33ef3",
+  companyName: "Mastercard",
+  title: "Software Development Engineer",
+  location: "Pune",
+  imageUrl: "https://1000logos.net/wp-content/uploads/2017/03/Mastercard-logo.png",
+  type: "In-Office Job",
+  salary: "11 LPA - 19 LPA",
+  redirectLink: "https://careers.mastercard.com/us/en/job/MASRUSR162856EXTERNALENUS/Software-Development-Engineer-in-Test?",
+  requiredExperience: "0-2 years",
+  skills: "SQL, Java",
+  createdAt: "2023-09-06T04:45:12.533Z",
+  
+},
+
+{
+  _id: "64f803dbe59b56d82cd33ef4",
+  companyName: "Mastercard",
+  title: "Software Development Engineer",
+  location: "Pune",
+  imageUrl: "https://1000logos.net/wp-content/uploads/2017/03/Mastercard-logo.png",
+  type: "In-Office Job",
+  salary: "11 LPA - 19 LPA",
+  redirectLink: "https://careers.mastercard.com/us/en/job/MASRUSR162856EXTERNALENUS/Software-Development-Engineer-in-Test?",
+  requiredExperience: "0-2 years",
+  skills: "SQL, Java",
+  createdAt: "2023-09-06T04:45:12.533Z",
+  
+},
+
+
+{
+  _id: "64f803dbe59b56d82cd33ef5",
+  companyName: "Mastercard",
+  title: "Software Development Engineer",
+  location: "Pune",
+  imageUrl: "https://1000logos.net/wp-content/uploads/2017/03/Mastercard-logo.png",
+  type: "In-Office Job",
+  salary: "11 LPA - 19 LPA",
+  redirectLink: "https://careers.mastercard.com/us/en/job/MASRUSR162856EXTERNALENUS/Software-Development-Engineer-in-Test?",
+  requiredExperience: "0-2 years",
+  skills: "SQL, Java",
+  createdAt: "2023-09-06T04:45:12.533Z",
+  
+},
+
+
+
+];
+
+
+
+
+
+
 
 export const problems: Problem[] = [
   {
@@ -22,8 +123,8 @@ export const problems: Problem[] = [
     order: 2,
     videoId: "",
   },
-  // "reverse-linked-list": reverseLinkedList,
-  // "jump-game": jumpGame,
+  // "reverse-linked-list: reverseLinkedList,
+  // "jump-game: jumpGame,
 ];
 
 export const subject_details: SubjectDetails[] = [

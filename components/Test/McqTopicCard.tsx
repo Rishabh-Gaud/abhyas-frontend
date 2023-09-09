@@ -1,12 +1,12 @@
+'use client';
 import React, { useState } from "react";
 import AccordionItem from "./ToggleAccordion";
 
 type mcqtopiccardprops = {
   problem:any;
-  onAnswerChange:any;
 }
 
-const McqTopicCard:React.FC<mcqtopiccardprops> = ({ problem, onAnswerChange }) => {
+const McqTopicCard:React.FC<mcqtopiccardprops> = ({ problem}) => {
   const [isChecked, setIsChecked] = useState(false);
   const [explanTab, setExplainTab] = useState(false);
   const [choose, setChoose] = useState(4);
@@ -16,7 +16,6 @@ const McqTopicCard:React.FC<mcqtopiccardprops> = ({ problem, onAnswerChange }) =
     setIsChecked(true);
     setChoose(answer);
     console.log("lfdf", flagAns);
-    onAnswerChange(problem._id, answer);
   };
 
   return (
@@ -41,7 +40,6 @@ const McqTopicCard:React.FC<mcqtopiccardprops> = ({ problem, onAnswerChange }) =
                   id={problem.description}
                   type="radio"
                   value={index}
-                  onChange={handleCodingAnswer}
                   name={problem.description}
                   className={`w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 `}
                   disabled= {explanTab}

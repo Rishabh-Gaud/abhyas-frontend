@@ -3,7 +3,10 @@ import Link from "next/link";
 import axios from "axios";
 import { useParams } from "next/navigation";
 import McqCard from "./McqCard";
-import CodingRedirect from "./CodingRedirect"
+import CodingRedirect from "./CodingRedirect";
+
+const BaseURL = process.env.BaseURL;
+
 function TestQuestions() {
   const params = useParams();
   const uid = String(params.tid);
@@ -12,7 +15,7 @@ function TestQuestions() {
   useEffect(() => {
     const getProblems = async () => {
       try {
-        const response = await axios.get("http://localhost:8082/test/" + uid);
+        const response = await axios.get(BaseURL + "test/" + uid);
         setMcqProblems(response.data.mcqs);
         setCodingProblems(response.data.codings);
       } catch (error: any) {

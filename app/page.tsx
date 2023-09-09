@@ -1,17 +1,19 @@
 'use client';
 import Topbar from "@/components/Navbar/Topbar";
 
-import { useState } from "react";
+// import { useState } from "react";
 import HomepageMcqSubjects from "@/components/HomepageContent/HomepageMcqSubjects";
+type homepageprops = {
 
-export default function Home() {
+}
+const Home:React.FC<homepageprops> = () => {
 
 	return (
-		<>
-			<main className='bg-zinc-300 min-h-screen'>
+			<main>
 				<Topbar />
 				<HomepageMcqSubjects/>
 			</main>
-		</>
 	);
 }
+
+export default Home;
