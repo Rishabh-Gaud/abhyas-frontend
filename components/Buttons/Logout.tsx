@@ -19,3 +19,7 @@ const Logout: React.FC = () => {
 	);
 };
 export default Logout;
+
+export const handleSessionStorageClear = () => {
+	sessionStorage.clear();
+}
