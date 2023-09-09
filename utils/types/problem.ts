@@ -6,6 +6,21 @@ export type Example = {
 	img?: string;
 };
 
+export type Jobs = {
+	_id:string,
+	companyName:string,
+	title:string,
+	location:string,
+	imageUrl:string,
+	type:string,
+	redirectLink:string,
+	requiredExperience:string,
+	salary:string,
+	skills:string,
+	createdAt:string,
+
+}
+
 export type SubjectDetails = {
 	name:string,
 	displayname:string,
