@@ -7,7 +7,7 @@ import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 const Profile = () => {
   const params = useParams();
-  const username = String(params.username);
+  const username = String(params.profile);
   console.log(username, " username")
   const data = GetProfileData("username");
   console.log(data, "fffjfsl")
