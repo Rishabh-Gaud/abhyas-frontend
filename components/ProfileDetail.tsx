@@ -95,7 +95,7 @@ const ProfileDetail = ({data}: any) => {
               Full name
             </dt>
             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              Margot Foster
+              {`${data.first_name} ${data.last_name}`}
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -103,7 +103,7 @@ const ProfileDetail = ({data}: any) => {
               Email address
             </dt>
             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              rishabh.kumbh@gmail.com
+              {data.email}
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -111,12 +111,7 @@ const ProfileDetail = ({data}: any) => {
               About
             </dt>
             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
-              mollitia esse quia error voluptatum aperiam. Totam quam obcaecati,
-              alias laudantium dolorem eum cumque optio veniam cupiditate enim
-              quis nihil doloremque ut fuga ducimus. Corporis recusandae
-              mollitia aspernatur ab magnam provident, modi nobis fugiat minima
-              omnis id optio, tempore dicta ad.
+              {data.about ? data.about : (<span className="text-red-500">please, update your about!</span>)}
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -135,12 +130,12 @@ const ProfileDetail = ({data}: any) => {
                     </div>
                   </div>
                   <div className="ml-4 flex-shrink-0">
-                    <a
-                      href="#"
+                  {data.instagram ? (<a
+                      href={`${data.instagram}`}
                       className="font-medium text-indigo-600 hover:text-indigo-500"
                     >
-                      {"www.instagram.com/in/rishabhgaud"}
-                    </a>
+                       {data.instagram} 
+                    </a>) : (<span className="text-red-500">please, update your instagram!</span>)}
                   </div>
                 </li>
                 <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
@@ -150,12 +145,12 @@ const ProfileDetail = ({data}: any) => {
                     </div>
                   </div>
                   <div className="ml-4 flex-shrink-0">
-                    <a
-                      href="#"
+                  {data.github ? (<a
+                      href={`${data.github}`}
                       className="font-medium text-indigo-600 hover:text-indigo-500"
                     >
-                      {"www.github.com/in/rishabhgaud"}
-                    </a>
+                       {data.github} 
+                    </a>) : (<span className="text-red-500">please, update your github!</span>)}
                   </div>
                 </li>
                 <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
@@ -165,12 +160,12 @@ const ProfileDetail = ({data}: any) => {
                     </div>
                   </div>
                   <div className="ml-4 flex-shrink-0">
-                    <a
-                      href="#"
+                  {data.linkedin ? (<a
+                      href={`${data.linkedin}`}
                       className="font-medium text-indigo-600 hover:text-indigo-500"
                     >
-                      {"www.linkedin.com/in/rishabhgaud"}
-                    </a>
+                       {data.linkedin} 
+                    </a>) : (<span className="text-red-500">please, update your linkedin!</span>)}
                   </div>
                 </li>
                 <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
@@ -180,12 +175,12 @@ const ProfileDetail = ({data}: any) => {
                     </div>
                   </div>
                   <div className="ml-4 flex-shrink-0">
-                    <a
-                      href="#"
+                  {data.leetcode ? (<a
+                      href={`${data.leetcode}`}
                       className="font-medium text-indigo-600 hover:text-indigo-500"
                     >
-                      {"www.leetcode.com/rishabh-gaud"}
-                    </a>
+                      {data.leetcode}
+                    </a>) : (<span className="text-red-500">please, update your leetcode!</span>)}
                   </div>
                 </li>
                 <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
@@ -195,12 +190,12 @@ const ProfileDetail = ({data}: any) => {
                     </div>
                   </div>
                   <div className="ml-4 flex-shrink-0">
-                    <a
-                      href="#"
+                  {data.facebook ? (<a
+                      href={`${data.facebook}`}
                       className="font-medium text-indigo-600 hover:text-indigo-500"
                     >
-                      {"www.facebook.com/in/rishabhgaud"}
-                    </a>
+                      {data.facebook}
+                    </a>) : (<span className="text-red-500">please, update your facebook!</span>)}
                   </div>
                 </li>
               </ul>

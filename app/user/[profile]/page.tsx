@@ -16,7 +16,7 @@ const Profile = () => {
     <div>
       <div className="w-[100%] flex mt-8 ">
         <div className="w-[20%]"></div>
-        <ProfileDetail data={"data"} />
+        <ProfileDetail data={data} />
       </div>
     </div>
   );
@@ -29,7 +29,7 @@ const GetProfileData = (username: string) => {
   useEffect(() => {
     const GetData = async () => {
       try {
-        const response = await axios.get('localhost:8082/user/profile/rishabh-gaud');
+        const response = await axios.get('http://localhost:8082/user/profile/rishabh-gaud');
         console.log(response);
         
         let { data } = response.data;
