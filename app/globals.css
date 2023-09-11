@@ -130,7 +130,16 @@ code {
   transition: all 0.2 linear;
   text-align: center;
 }
-
+#dashbordDetail {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  transition: all 0.2 linear;
+  text-align: center;
+}
 #subjectCardHome {
   /* display: flex; */
   box-shadow: 0 0 2rem pink;

@@ -3,50 +3,19 @@ import React, { useState } from "react";
 import classes from "../styles/profile.module.css";
 import { FaEdit } from "react-icons/fa";
 
-const ProfileDetail = ({data}: any) => {
+const DashboardDetail = ({ data }: any) => {
   return (
-
-    <div className=" px-1 mx-5">
-      <div className="px-4 sm:px-0">
-        <h3 className="text-base font-semibold leading-7 text-gray-900">
-          Applicant Information {data.username}
+    <div className=" w-full">
+      <div className=" sm:px-0">
+        <h3 className="text-base font-semibold leading-7 flex items-center justify-center text-gray-900">
+          Dashboard
         </h3>
-        <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500 flex">
-          Personal details{" "}
-          <button className="flex justify-center text-center items-center ml-2 text-blue-600">
-            <FaEdit />
-          </button>
-        </p>
       </div>
       <div className="mt-6 border-t border-gray-100">
         <dl className="divide-y divide-gray-100">
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-gray-900">
-              Full name
-            </dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              {`${data.first_name} ${data.last_name}`}
-            </dd>
-          </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">
-              Email address
-            </dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              {data.email}
-            </dd>
-          </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">
-              About
-            </dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              {data.about ? data.about : (<span className="text-red-500">please, update your about!</span>)}
-            </dd>
-          </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">
-              Social Sites
+              Coding Test
             </dt>
             <dd className="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
               <ul
@@ -56,76 +25,46 @@ const ProfileDetail = ({data}: any) => {
                 <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
                   <div className="flex w-0 flex-1 items-center">
                     <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                      <span className="truncate font-medium">Instagram</span>
+                      <span className="truncate font-medium">Google OA</span>
                     </div>
                   </div>
                   <div className="ml-4 flex-shrink-0">
-                  {data.instagram ? (<a
+                    <a
                       href={`${data.instagram}`}
                       className="font-medium text-indigo-600 hover:text-indigo-500"
                     >
-                       {data.instagram} 
-                    </a>) : (<span className="text-red-500">please, update your instagram!</span>)}
+                      Open Test
+                    </a>
                   </div>
                 </li>
                 <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
                   <div className="flex w-0 flex-1 items-center">
                     <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                      <span className="truncate font-medium">Github</span>
+                      <span className="truncate font-medium">Twitter OA</span>
                     </div>
                   </div>
                   <div className="ml-4 flex-shrink-0">
-                  {data.github ? (<a
-                      href={`${data.github}`}
+                    <a
+                      href={`${data.instagram}`}
                       className="font-medium text-indigo-600 hover:text-indigo-500"
                     >
-                       {data.github} 
-                    </a>) : (<span className="text-red-500">please, update your github!</span>)}
+                      Open Test
+                    </a>
                   </div>
                 </li>
                 <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
                   <div className="flex w-0 flex-1 items-center">
                     <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                      <span className="truncate font-medium">Linkedin</span>
+                      <span className="truncate font-medium">Meta OA</span>
                     </div>
                   </div>
                   <div className="ml-4 flex-shrink-0">
-                  {data.linkedin ? (<a
-                      href={`${data.linkedin}`}
+                    <a
+                      href={`${data.instagram}`}
                       className="font-medium text-indigo-600 hover:text-indigo-500"
                     >
-                       {data.linkedin} 
-                    </a>) : (<span className="text-red-500">please, update your linkedin!</span>)}
-                  </div>
-                </li>
-                <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
-                  <div className="flex w-0 flex-1 items-center">
-                    <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                      <span className="truncate font-medium">Leetcode</span>
-                    </div>
-                  </div>
-                  <div className="ml-4 flex-shrink-0">
-                  {data.leetcode ? (<a
-                      href={`${data.leetcode}`}
-                      className="font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      {data.leetcode}
-                    </a>) : (<span className="text-red-500">please, update your leetcode!</span>)}
-                  </div>
-                </li>
-                <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
-                  <div className="flex w-0 flex-1 items-center">
-                    <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                      <span className="truncate font-medium">Facebook</span>
-                    </div>
-                  </div>
-                  <div className="ml-4 flex-shrink-0">
-                  {data.facebook ? (<a
-                      href={`${data.facebook}`}
-                      className="font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      {data.facebook}
-                    </a>) : (<span className="text-red-500">please, update your facebook!</span>)}
+                      Open Test
+                    </a>
                   </div>
                 </li>
               </ul>
@@ -133,8 +72,56 @@ const ProfileDetail = ({data}: any) => {
           </div>
         </dl>
       </div>
+      <div className="mt-6 border-t border-gray-100">
+        <dl className="divide-y divide-gray-100">
+          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt className="text-sm font-medium leading-6 text-gray-900">
+              Coding Test
+            </dt>
+            <dd className="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+              <ul
+                role="list"
+                className="divide-y divide-gray-100 rounded-md border border-gray-200"
+              >
+                <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+                  <div className="flex w-0 flex-1 items-center">
+                    <div className="ml-4 flex min-w-0 flex-1 gap-2">
+                      <span className="truncate font-medium">CAT-1</span>
+                    </div>
+                  </div>
+                  <div className="ml-4 flex-shrink-0">
+                    <a
+                      href={``}
+                      className="font-medium text-indigo-600 hover:text-indigo-500"
+                    >
+                      Open Quiz
+                    </a>
+                  </div>
+                </li>
+                <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+                  <div className="flex w-0 flex-1 items-center">
+                    <div className="ml-4 flex min-w-0 flex-1 gap-2">
+                      <span className="truncate font-medium">SSC-1</span>
+                    </div>
+                  </div>
+                  <div className="ml-4 flex-shrink-0">
+                    <a
+                      href={`${data.instagram}`}
+                      className="font-medium text-indigo-600 hover:text-indigo-500"
+                    >
+                      Open Quiz
+                    </a>
+                  </div>
+                </li>
+                
+              </ul>
+            </dd>
+          </div>
+        </dl>
+      </div>
+      
     </div>
   );
 };
 
-export default ProfileDetail;
+export default DashboardDetail;
