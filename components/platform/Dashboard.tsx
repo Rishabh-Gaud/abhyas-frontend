@@ -10,8 +10,8 @@ function Dashboard() {
       <SideBarPlatform />
       <div id="" className="border-2 rounded-lg width-[100%] flex">
         <div className="w-[22%]"></div>
-        {/* <DashboardDetail data="" /> */}
-        <CreateTest />
+        <DashboardDetail data="" />
+        {/* <CreateTest /> */}
       </div>
     </div>
   );
