@@ -7,6 +7,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { handleSessionStorageClear } from "@/components/Buttons/Logout";
 
 const BaseURL = process.env.BaseURL;
 
@@ -17,7 +18,8 @@ const Subject = () => {
 
   const subjecttopics = UseGetSubjectTopics(subject);
   console.log(subjecttopics);
-  sessionStorage.clear();
+  handleSessionStorageClear();
+  // sessionStorage.clear();
 
   return (
     <>
