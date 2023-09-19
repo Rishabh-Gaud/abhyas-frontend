@@ -126,7 +126,7 @@ const CreateTest = () => {
                           <input
                                   type="number"
                                   name={subjectData.name}
-                                  value={formData[subjectData['name']]}
+                                  value={formData[subjectData['name'] as keyof typeof formData]}
                                   onChange={handleChange}
                                   placeholder={subjectData.name}
                                   
