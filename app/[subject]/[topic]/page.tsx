@@ -13,40 +13,32 @@ const MCQTopic = () => {
   const topicparam = String(params.topic);
   const topic = topicparam.replace(/-/g, " ");
 
-  const question = GetAllMcqs(subject,topic);
-  
+  const question = GetAllMcqs(subject, topic);
 
   return (
     <div className="mt-5 ml-10">
       {question &&
-        (question as any).map((problem:any, idx:number) => (
-          <McqTopicCard
-            key={idx}
-            problem={problem}
-          />
-        ))
-        }
+        (question as any).map((problem: any, idx: number) => (
+          <McqTopicCard key={idx} problem={problem} />
+        ))}
     </div>
   );
-}
+};
 
 export default MCQTopic;
 
-const GetAllMcqs = (subject:string, topic:string) =>{
+const GetAllMcqs = (subject: string, topic: string) => {
   const [question, setQuestion] = useState();
   useEffect(() => {
     const GetProblems = async () => {
       try {
-        const response = await axios.post(
-          BaseURL + `mcq/fetch-topic`,
-          { subject: subject, category: topic }
-        );
+        const response = await axios.post(BaseURL + `mcq/fetch-topic`, {
+          subject: subject,
+          category: topic,
+        });
         let { data } = response.data;
-        data = await AesDecryptUtil.aesDecrypt(data); // Decrypted data
         setQuestion(data);
       } catch (error: any) {
-        // toast.error(error.message, { position: "top-center", autoClose: 3000, theme: "dark" });
-        // seterror(error.messsage);
         throw error;
       }
     };
@@ -55,5 +47,4 @@ const GetAllMcqs = (subject:string, topic:string) =>{
   }, [subject, topic]);
 
   return question;
-
-}
+};

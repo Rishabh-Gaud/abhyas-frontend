@@ -24,21 +24,25 @@ const Subject = () => {
   return (
     <>
       <Topbar />
-      <SideBar/>
-      {subjecttopics && (<div id="subjectListHome" className="p-4 border-2 rounded-lg ">
-        {(subjecttopics as any).map((topicname:string, index:number) => {
-          return (
-             <TopicCard key={index} topicname={topicname} subject={String(subject)}/>
-          );
-        })}
-      </div>)}
-	  <div id="subjectListHome" className="p-4 border-2 rounded-lg ">
-	  <Link
-                href={`/quiz/${subject}`}
-              >
-	  	<div>{`take a ${subject} test`}</div>
-		</Link>
-	  </div>
+      <SideBar />
+      {subjecttopics && (
+        <div id="subjectListHome" className="p-4 border-2 rounded-lg ">
+          {(subjecttopics as any).map((topicname: string, index: number) => {
+            return (
+              <TopicCard
+                key={index}
+                topicname={topicname}
+                subject={String(subject)}
+              />
+            );
+          })}
+        </div>
+      )}
+      <div id="subjectListHome" className="p-4 border-2 rounded-lg ">
+        <Link href={`/quiz/${subject}`}>
+          <div>{`take a ${subject} test`}</div>
+        </Link>
+      </div>
     </>
   );
 };
@@ -48,23 +52,17 @@ export default Subject;
 function UseGetSubjectTopics(subjectname: string) {
   const [topics, setTopics] = useState();
   console.log(subjectname);
-  
 
   useEffect(() => {
     const getProblems = async () => {
       try {
-        // const data = { subject:subjectname };
         const response = await axios.post(BaseURL + "mcq/topics", {
           subject: subjectname,
         });
         let { data } = response.data;
-        data = await AesDecryptUtil.aesDecrypt(data); // Decrypted data
         console.log("response: ", data);
         setTopics(data);
-      } catch (error: any) {
-        // toast.error(error.message, { position: "top-center", autoClose: 3000, theme: "dark" });
-        // seterror(error.messsage);
-      }
+      } catch (error: any) {}
     };
 
     getProblems();
